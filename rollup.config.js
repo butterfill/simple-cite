@@ -1,7 +1,6 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
-import { uglify } from 'rollup-plugin-uglify'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
 
 import pkg from './package.json'
 
@@ -16,11 +15,11 @@ export default [
     plugins: [
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true
+        babelHelpers: 'runtime'
+        // runtimeHelpers: true
       }),
       resolve({ jsnext: true, main: true, browser: true }),
-      commonjs(),
-      process.env.NODE_ENV === 'production' && uglify()
+      commonjs()
     ]
   },
   {
@@ -34,9 +33,9 @@ export default [
     plugins: [
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true
-      }),
-      process.env.node_env === 'production' && uglify()
+        babelHelpers: 'runtime'
+        // runtimeHelpers: true
+      })
     ]
   }
 ]
