@@ -78,6 +78,8 @@ const Processor = require('@butterfill/simple-cite')
 </script>
 ```
 
+Note: This library does not include polyfills. If you target older environments, add needed polyfills in your app (e.g., core-js) rather than relying on the library to provide them.
+
 ## Build
 
 Build produces ESM, CJS, and UMD outputs in `dist/` (ignored by git):

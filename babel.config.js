@@ -5,11 +5,9 @@ module.exports = {
       {
         loose: true,
         modules: 'auto',
-        useBuiltIns: 'usage',
-        shippedProposals: true,
-        targets: {
-          browsers: ['>0.25%', 'not dead']
-        }
+        // Do not inject polyfills into library build; let consumers choose polyfills
+        // useBuiltIns: 'usage',
+        shippedProposals: true
       }
     ]
   ],
