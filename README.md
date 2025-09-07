@@ -99,6 +99,16 @@ npm test
 npm test -- -u
 ```
 
+### Publishing
+
+Publishing to GitHub Packages requires a PAT in `NODE_AUTH_TOKEN` and will automatically build before publish via `prepare`/`prepublishOnly`:
+
+```shell
+export NODE_AUTH_TOKEN=<your_PAT_with_write:packages>
+npm version patch   # or minor/major
+npm publish         # prepare/prepublishOnly builds dist/ before packing
+```
+
 ## Simple Usage
 
 Import the citation processor from the package, configure it with a CSL [style](#citation-style) and [locale](#citation-locale), a list of citeable [items](#items) and optionally a format ('html', 'text' or 'rst'):

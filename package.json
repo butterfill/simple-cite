@@ -75,6 +75,8 @@
     "lint": "eslint .",
     "format": "yarn lint --fix",
     "clean": "rimraf dist reports yarn-error.log",
-    "ci": "jest && codecov"
+    "ci": "jest && codecov",
+    "prepare": "npm run clean && npm run build",
+    "prepublishOnly": "npm run clean && npm run build"
   }
 }
