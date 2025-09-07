@@ -1,14 +1,6 @@
-This is my custom build from `git@github.com:butterfill/simple-cite.git`
+This is a maintained fork published to GitHub Packages under the `@butterfill` scope.
 
-Build it by:
-
-git clone
-
-yarn install
-
-NODE_ENV=production rollup -c
-
-# Functional Changes 
+# Functional Changes
 
 1. allow passing properties to `sys` when creating `Processor`
 
@@ -16,7 +8,6 @@ NODE_ENV=production rollup -c
 
 1. rename rollup plugins
 2. remove uglify (no plugin exists anymore)
-
 
 <p align="center">
   <img src="static/logo.png" alt="simple-cite" />
@@ -43,18 +34,69 @@ NODE_ENV=production rollup -c
 A simple package for generating citations and bibliographies, wrapping the excellent <a href="https://citeproc-js.readthedocs.io/en/latest/"><code>citeproc-js</code></a>.
 </p>
 
-## Install
+## Install (@butterfill GitHub Packages)
 
-Download the package from NPM using [`npm`](https://npmjs.org):
+This fork is published to GitHub Packages under the `@butterfill` scope, with CJS, ESM, and UMD builds for maximum compatibility.
 
-```shell
-npm install --save simple-cite style-apa locale-en-us
+1. Ensure your `.npmrc` includes the GitHub Packages registry and uses an environment variable for the token (already present in this repo):
+
+```ini
+@butterfill:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 ```
 
-or [`yarn`](https://yarnpkg.com/):
+2. Set `NODE_AUTH_TOKEN` to a GitHub PAT with `read:packages` (and `write:packages` for publishing). Do not commit tokens.
+
+3. Install via npm or yarn:
 
 ```shell
-yarn add simple-cite style-apa locale-en-us
+npm install --save @butterfill/simple-cite style-apa locale-en-us
+# or
+yarn add @butterfill/simple-cite style-apa locale-en-us
+```
+
+### Usage
+
+- ESM (Node/bundlers):
+
+```js
+import Processor from '@butterfill/simple-cite'
+```
+
+- CommonJS (Node require):
+
+```js
+const Processor = require('@butterfill/simple-cite')
+```
+
+- Browser (UMD global):
+
+```html
+<script src="/path/to/dist/simple-cite.umd.js"></script>
+<script>
+  const Processor = window.SimpleCite
+</script>
+```
+
+## Build
+
+Build produces ESM, CJS, and UMD outputs in `dist/` (ignored by git):
+
+```shell
+npm install
+npm run clean && npm run build
+# outputs:
+# - dist/simple-cite.esm.js  (ESM)
+# - dist/simple-cite.cjs.js  (CommonJS)
+# - dist/simple-cite.umd.js  (UMD for browsers, global: SimpleCite)
+```
+
+Run tests and update snapshots when needed:
+
+```shell
+npm test
+# or update snapshots
+npm test -- -u
 ```
 
 ## Simple Usage
@@ -62,7 +104,7 @@ yarn add simple-cite style-apa locale-en-us
 Import the citation processor from the package, configure it with a CSL [style](#citation-style) and [locale](#citation-locale), a list of citeable [items](#items) and optionally a format ('html', 'text' or 'rst'):
 
 ```js
-import Processor from 'simple-cite'
+import Processor from '@butterfill/simple-cite'
 
 // citation formatting configuration
 import style from 'style-apa'

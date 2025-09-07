@@ -58,7 +58,7 @@ exports[`Bibliography vancouver renders a journal article 1`] = `
 exports[`Bibliography vancouver renders a webpage 1`] = `
 "<div class=\\"csl-bib-body\\">
   <div class=\\"csl-entry\\">
-    <div class=\\"csl-left-margin\\">1. </div><div class=\\"csl-right-inline\\">CSL search by example [Internet]. Citation Style Editor. [cited 15 December 2012]. Available at: <a href=\\"http://editor.citationstyles.org/searchByExample/\\">http://editor.citationstyles.org/searchByExample/</a></div>
+    <div class=\\"csl-left-margin\\">1. </div><div class=\\"csl-right-inline\\">CSL search by example [Internet]. Citation Style Editor. [cited 2012 Dec 15]. Available from: <a href=\\"http://editor.citationstyles.org/searchByExample/\\">http://editor.citationstyles.org/searchByExample/</a></div>
   </div>
 </div>"
 `;

@@ -11,13 +11,6 @@ module.exports = {
   reporters: [
     'default',
     [
-      'jest-html-reporter',
-      {
-        outputPath: 'reports/html/unit-tests.html',
-        theme: 'lightTheme'
-      }
-    ],
-    [
       'jest-junit',
       {
         output: 'reports/junit/unit-tests.xml'

@@ -1,10 +1,16 @@
 {
-  "name": "simple-cite",
-  "version": "0.1.1",
+  "name": "@butterfill/simple-cite",
+  "version": "0.1.2",
   "description": "A simple package for generating citations and bibliographies",
   "main": "dist/simple-cite.cjs.js",
   "module": "dist/simple-cite.esm.js",
   "browser": "dist/simple-cite.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/simple-cite.esm.js",
+      "require": "./dist/simple-cite.cjs.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -16,13 +22,16 @@
     "csl",
     "citeproc-js"
   ],
-  "repository": "github:richlewis42/simple-cite",
+  "repository": "github:butterfill/simple-cite",
   "author": {
     "name": "Rich Lewis",
     "email": "contact@richlew.is",
     "url": "https://richlew.is/"
   },
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "citeproc": "^2.1.210"
@@ -36,9 +45,9 @@
     "@babel/preset-env": "^7.1.6",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
-    "@rollup/plugin-babel": "^4.0.3",
-    "@rollup/plugin-commonjs": "^9.2.0",
-    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -48,7 +57,6 @@
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.1.4",
     "jest": "^23.6.0",
-    "jest-html-reporter": "^2.4.2",
     "jest-junit": "^5.2.0",
     "jest-raw-loader": "^1.0.1",
     "lint-staged": "^8.0.4",
@@ -56,7 +64,7 @@
     "locale-es-es": "^0.0.1",
     "prettier": "^1.15.2",
     "rimraf": "^2.6.3",
-    "rollup": "^0.67.1",
+    "rollup": "^2.79.1",
     "style-apa": "*",
     "style-vancouver": "*"
   },

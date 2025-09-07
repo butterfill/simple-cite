@@ -4,11 +4,14 @@ import babel from '@rollup/plugin-babel'
 
 import pkg from './package.json'
 
+// Use a safe global name for UMD builds (scoped package names are invalid as globals)
+const umdName = 'SimpleCite'
+
 export default [
   {
     input: 'src/index.js',
     output: {
-      name: pkg.name,
+      name: umdName,
       file: pkg.browser,
       format: 'umd'
     },
@@ -27,7 +30,8 @@ export default [
     external: id =>
       /^(@babel\/runtime|core-js)/.test(id) || ['citeproc'].includes(id),
     output: [
-      { file: pkg.main, format: 'cjs' },
+      // Ensure CommonJS consumers can `require()` without `.default`
+      { file: pkg.main, format: 'cjs', exports: 'default' },
       { file: pkg.module, format: 'es' }
     ],
     plugins: [
