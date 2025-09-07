@@ -1,3 +1,23 @@
+This is my custom build from `git@github.com:butterfill/simple-cite.git`
+
+Build it by:
+
+git clone
+
+yarn install
+
+NODE_ENV=production rollup -c
+
+# Functional Changes 
+
+1. allow passing properties to `sys` when creating `Processor`
+
+# Changes to make it compile
+
+1. rename rollup plugins
+2. remove uglify (no plugin exists anymore)
+
+
 <p align="center">
   <img src="static/logo.png" alt="simple-cite" />
 </p>
